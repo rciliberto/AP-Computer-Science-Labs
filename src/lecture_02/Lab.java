@@ -1,13 +1,13 @@
-package lecture_01;
+package lecture_02;
 
 public class Lab {
 	public static void main(String args[]){
 		int test1, test2, test3;
 		double avg, dev1, dev2, dev3, var, stdev;
 		
-		test1=90;
-		test2=56;
-		test3=100;
+		test1=78;
+		test2=82;
+		test3=89;
 		
 		avg=(test1+test2+test3)/3.0;
 		
