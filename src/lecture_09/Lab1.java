@@ -4,21 +4,20 @@ import java.util.Scanner;
 
 public class Lab1 {
 	public static void main(String[] args){
-		Scanner input = new Scanner(in);
+		Scanner input = new Scanner(in); //declare and initialize new Scanner object
 		
-		out.print("Enter a sentence: ");
-		String str=input.nextLine();
+		out.print("Enter a sentence: "); //Get input from user and store in a String
+		String str=input.nextLine(); 
 		
 		int count=0;
-		for (int i=0; i<str.length();i++){
+		for (int i=0; i<str.length();i++){ //loop through indexes of input and count number of vowels using isVowel method
 			if (isVowel(str.charAt(i))) count++; 
 		}
-		out.println("There are " + count + " vowels.");
-		input.close();
+		out.println("There are " + count + " vowels."); //Print number of vowels
+		input.close(); //Close scanner object
 	}
 	
 	public static boolean isVowel(char str){
-		if (str=='a' | str=='e' | str=='i' | str=='o' | str=='u') return true;
-		return false;
+		return (str=='a' | str=='e' | str=='i' | str=='o' | str=='u'); //Checks if the given char is a vowel
 	}
 }
