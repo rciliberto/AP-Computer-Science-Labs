@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Lab1 {
 	public static void main(String[] args){
-		Scanner input = new Scanner(in); //declare and initialize new Scanner object
+		Scanner input = new Scanner(in); //Declare and initialize new Scanner object
 		
 		out.print("Enter a sentence: "); //Get input from user and store in a String
 		String str=input.nextLine(); 

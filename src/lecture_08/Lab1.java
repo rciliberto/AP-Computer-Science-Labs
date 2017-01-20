@@ -6,7 +6,7 @@ public class Lab1 {
 	public static void main(String[] args){
 		Scanner input = new Scanner(in);
 				
-		out.print("What is your name: ");
+		out.print("What is your full name: ");
 		String name=input.nextLine();
 		out.println();
 		String first=name.substring(0,name.indexOf(" ")), last=name.substring(name.indexOf(" ")+1);
