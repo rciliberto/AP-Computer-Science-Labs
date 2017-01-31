@@ -29,6 +29,7 @@ public class Question {
 	private String correctAnswer;
 	private ArrayList<String> answers;
 	
+    // Save variables, initialize list
 	public Question(String question, boolean choice, String correctAnswer) {
 		this.question = question;
 		isMultipleChoice = choice;
@@ -37,34 +38,35 @@ public class Question {
 	}
 	
 	public boolean addChoice(String choice) {
-		return addChoice(answers.size(), choice);
+		return addChoice(answers.size(), choice); // Add the choice to the end of list answers
 	}
 	
 	public boolean addChoice(int index, String choice) {
-		if (!isMultipleChoice) return false;
-		if (answers.size() == 5) return false;
+		if (!isMultipleChoice) return false; // Automatically return false if not a multiple choice question
+		if (answers.size() == 5) return false; // If there are already 5 answers, return false
 		
-		answers.add(i, choice);
+		answers.add(i, choice); // Add the answer to position i
 		return true;
 	}
 	
 	public String toString() {
-		if (!isMultipleChoice) return question + "\nAnswer: ";
-		String response = question + "\n";
-		for (int i = 0; i < answers.size(); i++) {
-			response += LETTERS[i] + " " + answers.get(i) + "\n";
+		if (!isMultipleChoice) return question + "\nAnswer: "; // If not multiple choice, just return the question and a line for the answer
+		String response = question + "\n"; // The question, followed by a new line
+		for (int i = 0; i < answers.size(); i++) { // Iterate through all answers in the list
+			response += LETTERS[i] + " " + answers.get(i) + "\n"; // Add the answer to the string, with the appropriate letter before and a new line after
 		}
+		return response;
 	}
 	
 	public void printAnswer() {
-		if (!isMultipleChoice) {
-			System.out.println("Answer: " + answer);
-			return;
+		if (!isMultipleChoice) { // If not multiple choice, just print the answer and end.
+			System.out.println("Answer: " + correctAnswer);
+			return; // End. An if/else statement can also be used
 		}
-		for (int i = 0; i < answers.size(); i++) {
-			if (answers.get(i).equals(answer)) {
-				System.out.println("Answer: " + LETTERS[i] + " " + answer);
-				return;
+		for (int i = 0; i < answers.size(); i++) { // Iterate through all answers in the list
+			if (answers.get(i).equals(correctAnswer)) { // If the answer is equal to the correct answer...
+				System.out.println("Answer: " + LETTERS[i] + " " + correctAnswer); // Print the answer with the appropriate letter...
+				return; // and end (don't continue searching for the correct answer, because we already found it.)
 			}
 		}
 	}
