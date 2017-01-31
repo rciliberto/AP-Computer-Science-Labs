@@ -40,36 +40,35 @@ public class MagicSquare {
 		
 		for(int i=0; i<size; i++){
 			major+=square[i][i];
-			minor+=square[size-i-1][size-i-1];
+			minor+=square[i][size-i-1];
 		}
 		return (major==sum && minor==sum);
 	}
 	
 	public static boolean exactlyOnce(int[][] square){
-		int size=square.length, sum=supposedSum(square), total=0;
-		
-		for(int i=0; i<size; i++){
-			total+=rowSum(square, i);
-		}
-		return sum==total;
+		int nums=(int)Math.pow(square.length,2);
+		int[] count=new int[nums];
+			
+			for (int i=0; i<square.length;i++){
+				for (int j=0; j<square[i].length;j++){
+					if(square[i][j]<=nums)count[square[i][j]-1]++; 
+		        }
+			}
+			for(int i=0;i<count.length;i++){
+				if(count[i]!=1) return false;
+		   }
+		   return true;
 	}
 	
 	public static boolean isMagic(int[][] square){
-		boolean rowCol=true;
+		int sum=rowSum(square, 0);
 		
-		for(int i=0; i<square.length; i++){
-			for(int j=0; j<square.length; j++){
-				if(rowSum(square,i)!=colSum(square,j)) rowCol=false;
-			}
+		for (int i=0; i<square.length; i++){
+			if (rowSum(square, i)!=sum) return false;
+			if (colSum(square, i)!=sum) return false;
 		}
-		return rowCol && diagSums(square,rowSum(square,0)) && exactlyOnce(square);
-	}
-	
-	//My own implementation to avoid unnecessary clutter
-	private static int supposedSum(int[][] square){	//Returns the supposed total sum of a magic square
-		int sum=0;
-		for(int i=1; i<=Math.pow(square.length,2); i++) 
-			sum+=i;
-		return sum;
+		
+	    if (!diagSums(square, sum) || !exactlyOnce(square)) return false;
+	    return true;
 	}
 }

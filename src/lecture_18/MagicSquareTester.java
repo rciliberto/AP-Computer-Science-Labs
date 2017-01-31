@@ -24,7 +24,7 @@ public class MagicSquareTester {
 		System.out.println(MagicSquare.rowSum(square4, 0));
 		System.out.println(MagicSquare.colSum(square4, 0));
 
-		System.out.println(MagicSquare.diagSums(square4, 34));
+		System.out.println(MagicSquare.diagSums(square4, MagicSquare.colSum(square4, 0)));
 		System.out.println(MagicSquare.exactlyOnce(square4));
 		
 		System.out.println(MagicSquare.isMagic(square4));
