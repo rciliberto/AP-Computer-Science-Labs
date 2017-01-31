@@ -23,6 +23,7 @@ import java.util.*;
 
 public class Lab1 {
 	public static void main(String[] args) {
+		// Create 3 array lists, of integers, strings, and doubles
 		ArrayList<Integer> numbers = new ArrayList<Integer>();
 		numbers.add(3); numbers.add(2); numbers.add(4);
 		numbers.add(7); numbers.add(9);
@@ -33,35 +34,36 @@ public class Lab1 {
 		doubles.add(3.2); doubles.add(3.2); doubles.add(4.6);
 		doubles.add(7.62); doubles.add(3.2); doubles.add(9.1);
 		
+		// Test the methods
 		System.out.println(smallest(numbers));
 		System.out.println(longest(strings));
 		System.out.println(remove(doubles, 3.2));
 	}
 	
 	public static int smallest(ArrayList<Integer> list) {
-		int smallest = list.get(0);
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i) < smallest) {
-				smallest = list.get(i);
+		int smallest = list.get(0); // Save the first item as the smallest
+		for (int i = 0; i < list.size(); i++) { // Iterate through all numbers in the list
+			if (list.get(i) < smallest) { // If the current number is smaller than the saved smallest...
+				smallest = list.get(i);   // set the smallest to the current number
 			}
 		}
 		return smallest;
 	}
 	
 	public static String longest(ArrayList<String> list) {
-		String longest = list.get(0);
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).length() > longest.length()) {
-				longest = list.get(i);
+		String longest = list.get(0); // Save the first string as the longest
+		for (int i = 0; i < list.size(); i++) { // Iterate through all strings in the list
+			if (list.get(i).length() > longest.length()) { // If the current string is longer than the saved longest...
+				longest = list.get(i); // set the longest to the current string
 			}
 		}
 		return longest;
 	}
 	
 	public static ArrayList<Double> remove(ArrayList<Double> list, double x) {
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i) == x) {
-				list.remove(i--);
+		for (int i = 0; i < list.size(); i++) { // Iterate through all doubles in the list
+			if (list.get(i) == x) { // If the current double equals the given double "x"
+				list.remove(i--); // Remove the double from the list and decrement i to avoid skipping
 			}
 		}
 		return list;
