@@ -22,17 +22,29 @@ package lecture_19;
 import java.util.*;
 
 public class QuestionDriver {
-  public static void main(String[] args) {
-    Question question = new Question("Who is the first president of the United States?", true, "George Washington");
-    question.addChoice("Abraham Lincoln");
-    System.out.println(question.addChoice("Franklin Roosevelt"));
-    question.addChoice(1, "George Washington");
-    System.out.println(question);
-    question.printAnswer();
-    
-    Question question2 = new Question("5x+12 = 17\nx=?", false, "1");
-    System.out.println(question2.addChoice("2"));
-    System.out.println(question2);
-    question2.printAnswer();
-  }
+    public static void main(String[] args) {
+        Question question = new Question("Who is the first president of the United States?", true, "George Washington");
+        question.addChoice("Abraham Lincoln"); // Add answer choice
+        System.out.println(question.addChoice("Franklin Roosevelt")); // Attempt to add an answer choice (returns true)
+        question.addChoice(1, "George Washington"); // Add answer choice to position 1 
+        System.out.println(question);
+        question.printAnswer();
+        /* true
+           Who is the first president of the United States?
+           A. Abraham Lincoln
+           B. George Washington
+           C. Franklin Roosevelt
+           
+           Answer: B. George Washington */
+        
+        Question question2 = new Question("5x+12 = 17\nx=?", false, "1");
+        System.out.println(question2.addChoice("2")); // Attempt to add an answer choice (returns false)
+        System.out.println(question2);
+        question2.printAnswer();
+        /* false
+           5x+12 = 17
+           x=?
+           Answer: 
+           Answer: 1 */
+    }
 }
