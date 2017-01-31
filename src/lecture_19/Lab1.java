@@ -41,9 +41,10 @@ public class Lab1 {
 		return longest;
 	}
 	
-	public static void remove(ArrayList<Double> array, double x){
+	public static ArrayList<Double> remove(ArrayList<Double> array, double x){
 		while(array.indexOf(x)!=-1){ // Loop until x isn't found in list
 			array.remove(array.indexOf(x)); // Remove first value of x
 		}
+		return array;
 	}
 }
