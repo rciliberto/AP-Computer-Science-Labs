@@ -25,15 +25,15 @@ public class Question {
 		this.correctAnswer=correctAnswer;
 	}
 	
-	public String toString(){
+	public String toString(){	//Return the question (can be used to access the question String)
 		return question;
 	}
 		
-	public String Answer(){
+	public String Answer(){	//Return the answer (used for child-classes to access the correctAnswer String)
 		return correctAnswer;
 	}
 	
-	public void printAnswer(){
+	public void printAnswer(){	//Print out the answer
 		System.out.println(correctAnswer);
 	}
 }

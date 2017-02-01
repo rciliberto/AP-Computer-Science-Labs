@@ -26,11 +26,17 @@ public class QuestionTester {
 		q1.addChoice("Franklin Roosevelt");
 		
 		System.out.println(q1);
-		q1.printAnswer();
+		/*	Who is the first president of the united States?
+			A. Abraham Lincoln
+			B. George Washington
+			C. Franklin Roosevelt
+		*/
+		System.out.println();
+		q1.printAnswer();	//B. George Washington
 		System.out.println();
 		
 		Question q2=new Question("What is my name?", "Robby");
-		System.out.println(q2);
-		q2.printAnswer();
+		System.out.println(q2);	//"What is my name?"
+		q2.printAnswer();	//"Robby"
 	}
 }

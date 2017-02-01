@@ -22,14 +22,32 @@ public class MultipleChoice extends Question {
 	ArrayList<String> answers;
 	public static final String[] LETTERS={"A", "B", "C", "D", "E"};
 	
-	public MultipleChoice(String question, String correctAnswer){
+	public MultipleChoice(String question, String correctAnswer){	//MultipleChoice is a Question with an ArrayList of answers
 		super(question, correctAnswer);
 		answers=new ArrayList<String>();
 	}
-	
-	public boolean addChoice(String choice){
-		return addChoice(answers.size(), choice);
+		
+	@Override
+	public String toString(){
+		String choices="";
+		for(int i=0; i<answers.size(); i++){				//Store each answer with its corresponding letter separated by a line break
+			choices+="\n"+LETTERS[i]+". "+answers.get(i);	
+		}
+		return super.toString() + choices;	//Print the answer and the choices
 	}
+	
+	@Override
+	public void printAnswer(){
+		int letter=-1;
+		for(int i=0; i<answers.size(); i++){	//Find the answer and the letter it corresponds with
+			if(answers.get(i).equals(Answer())) letter=i;
+		}
+		if(letter==-1) System.out.println("No correct answer.");	//If the answer doesn't exist print so
+		else System.out.println(LETTERS[letter]+". "+answers.get(letter));	//Print the letter and the answer
+	}
+	
+	
+	
 	
 	public boolean addChoice(int index, String choice){
 		if(answers.size()>=5) return false;
@@ -39,22 +57,8 @@ public class MultipleChoice extends Question {
 		}
 	}
 	
-	@Override
-	public String toString(){
-		String choices="";
-		for(int i=0; i<answers.size(); i++){
-			choices+=LETTERS[i]+". "+answers.get(i)+"\n";
-		}
-		return super.toString() + "\n" + choices;
+	public boolean addChoice(String choice){
+		return addChoice(answers.size(), choice);
 	}
 	
-	@Override
-	public void printAnswer(){
-		int letter=-1;
-		for(int i=0; i<answers.size(); i++){
-			if(answers.get(i).equals(Answer())) letter=i;
-		}
-		if(letter==-1) System.out.println("No correct answer.");
-		else System.out.println(LETTERS[letter]+". "+answers.get(letter));
-	}
 }
