@@ -45,7 +45,7 @@ public class Question {
 		if (!isMultipleChoice) return false; // Automatically return false if not a multiple choice question
 		if (answers.size() == 5) return false; // If there are already 5 answers, return false
 		
-		answers.add(i, choice); // Add the answer to position i
+		answers.add(index, choice); // Add the answer to position i
 		return true;
 	}
 	
