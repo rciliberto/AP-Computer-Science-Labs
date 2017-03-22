@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class Mode {
 	public static void main(String[] args){
-		int[] array={1,2,3,3,4,5};
+		int[] array={1,2,3,4,4,5};
 		System.out.println(mode(array));
 	}
 	
